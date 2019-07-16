@@ -19,4 +19,18 @@ class ShortLinkTest < ActiveSupport::TestCase
     assert_not(valid_link.save)
   end
 
+  test "should generate a unique url" do
+    valid_short_link = short_links(:default)
+    valid_short_link.save
+    assert(valid_short_link.save)
+
+    link = valid_short_link.reload.link
+
+    assert_match(/#{ShortLinkHostResolver.get_host_url}.*/, link)
+
+    linkUID = link.gsub("#{ShortLinkHostResolver.get_host_url}/", '')
+
+    assert_equal(linkUID.length, 8)
+  end
+
 end
