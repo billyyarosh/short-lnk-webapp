@@ -21,7 +21,8 @@ $ bin/rails server
 
 **Automated Tests**
 - Run `/bin/rake test` from command line.
-- All tests should pass prior to contribution.
+- Run `bin/rake test:system` from command line to exercise happy path system tests
+- All tests should pass prior to pull requests.
 
 ## Project Information
 * Rails version

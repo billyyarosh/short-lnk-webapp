@@ -2,12 +2,11 @@ require "application_system_test_case"
 
 class ShortLinksTest < ApplicationSystemTestCase
   setup do
-    @short_link = short_links(:one)
+    @short_link = short_links(:default)
   end
 
   test "creating a Short link" do
-    visit short_links_url
-    click_on "New Short Link"
+    visit new_short_link_url
 
     fill_in "Full url", with: @short_link.full_url
     click_on "Create Short link"

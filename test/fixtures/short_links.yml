@@ -1,9 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  full_url: MyString
-  link: MyString
+default:
+  full_url: https://stackoverflow.com/users/1387421/keaplogik
 
-two:
-  full_url: MyString
-  link: MyString

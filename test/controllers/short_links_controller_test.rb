@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ShortLinksControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @short_link = short_links(:one)
+    @short_link = short_links(:default)
   end
 
   test "should get new" do
@@ -16,6 +16,16 @@ class ShortLinksControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to short_link_url(ShortLink.last)
+  end
+
+  test "should fail create short_link on invalid full_url" do
+    assert_no_changes('ShortLink.count') do
+      post short_links_url, params: { short_link: { full_url: nil } }
+    end
+
+    assert_no_changes('ShortLink.count') do
+      post short_links_url, params: { short_link: { full_url: 'invalid:http://url.com' } }
+    end
   end
 
   test "should show short_link" do
