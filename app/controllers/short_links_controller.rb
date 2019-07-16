@@ -1,6 +1,17 @@
 class ShortLinksController < ApplicationController
   before_action :set_short_link, only: [:show]
 
+  # GET /short_links/redirect/uid
+  def redirect
+    # Determine if link is a short link: Redirect to full url if found
+    @short_link = ShortLink.find_by(link: request.url)
+    if @short_link
+      redirect_to @short_link.full_url
+    else
+      raise ActionController::RoutingError, 'Not Found'
+    end
+  end
+
   # GET /short_links/1
   # GET /short_links/1.json
   def show

@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Here is your Short Link!</strong>
-  <%= @short_link.link %>
+  <strong>Here is your Short Link!</strong> <br/> <br/>
+  <a href="<%= @short_link.link %>"><%= @short_link.link %></a>
 </p>
 
 <%= link_to 'Back', new_short_link_path %>

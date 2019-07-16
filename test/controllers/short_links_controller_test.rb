@@ -33,6 +33,22 @@ class ShortLinksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  ## TODO: Add test for redirect from shortlink to long url.
+  test "should redirect valid short link" do
+    @short_link.save!
+    @short_link = @short_link.reload
+
+    get @short_link.link
+
+    assert_redirected_to @short_link.full_url
+  end
+
+  test "should be 404 with invalid short link" do
+    @short_link.save!
+
+    assert_raises(ActionController::RoutingError) do
+      get "#{@short_link.reload.link}invalid"
+    end
+
+  end
 
 end

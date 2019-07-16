@@ -1,4 +1,6 @@
-# README
+# Short Lnk: Short Link Generator
+
+This application will let users create a short link from a full URL. The user can then request the short link in their web browser to be redirected to the full path URL. 
 
 ## Quick Start
 Assuming Rails 5.2.3 and Ruby 2.3.8 are installed on your system.
