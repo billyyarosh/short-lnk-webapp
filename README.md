@@ -31,7 +31,7 @@ $ bin/rails server
     - SQLite3 in memory database
 
 * Configuration
-    - TODO
+    - NA
 
 * Database creation
     - `bin/rake db:create`
